@@ -1,4 +1,5 @@
-﻿using DemoShoes.CustomUserControl;
+﻿using DemoShoes.AppForms;
+using DemoShoes.CustomUserControl;
 using DemoShoes.Models;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace DemoShoes
     {
 
         private Users _user;
+        //public List<Order_Items> _order = new List<Order_Items>();
+        public List<Products> _order = new List<Products>();
         private List<Products> _products = Program.context.Products.ToList();
 
         public MainForm()
@@ -42,7 +45,7 @@ namespace DemoShoes
         {
             foreach (var prod in products)
             {
-                var pr = new ProductUserControl(prod);
+                var pr = new ProductUserControl(prod, true);
                 flowLayoutPanel1.Controls.Add(pr);
             }
         }
@@ -122,6 +125,12 @@ namespace DemoShoes
         private void SortComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilterFun();
+        }
+
+        private void SeeOrderButton_Click(object sender, EventArgs e)
+        {
+            OrderForm orderForm = new OrderForm();
+            orderForm.ShowDialog(this);
         }
     }
 }

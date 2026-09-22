@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TitlePictureBox = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.wonderShoesDataSet = new DemoShoes.WonderShoesDataSet();
             this.ordersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordersTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.OrdersTableAdapter();
             this.tableAdapterManager = new DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager();
-            this.order_ItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.order_ItemsTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.Order_ItemsTableAdapter();
+            this.order_ItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wonderShoesDataSet)).BeginInit();
@@ -61,7 +64,11 @@
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.TitleLabel);
             this.splitContainer1.Panel1.Controls.Add(this.TitlePictureBox);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer1.Size = new System.Drawing.Size(1180, 450);
             this.splitContainer1.SplitterDistance = 112;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -97,6 +104,15 @@
             this.TitlePictureBox.TabIndex = 0;
             this.TitlePictureBox.TabStop = false;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1180, 334);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // wonderShoesDataSet
             // 
             this.wonderShoesDataSet.DataSetName = "WonderShoesDataSet";
@@ -126,26 +142,28 @@
             this.tableAdapterManager.UpdateOrder = DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
+            // order_ItemsTableAdapter
+            // 
+            this.order_ItemsTableAdapter.ClearBeforeFill = true;
+            // 
             // order_ItemsBindingSource
             // 
             this.order_ItemsBindingSource.DataMember = "Order_Items";
             this.order_ItemsBindingSource.DataSource = this.wonderShoesDataSet;
             // 
-            // order_ItemsTableAdapter
-            // 
-            this.order_ItemsTableAdapter.ClearBeforeFill = true;
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1180, 450);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderForm";
             this.Text = "OrderForm";
             this.Load += new System.EventHandler(this.OrderForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.TitlePictureBox)).EndInit();
@@ -167,5 +185,6 @@
         private WonderShoesDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private WonderShoesDataSetTableAdapters.Order_ItemsTableAdapter order_ItemsTableAdapter;
         private System.Windows.Forms.BindingSource order_ItemsBindingSource;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
