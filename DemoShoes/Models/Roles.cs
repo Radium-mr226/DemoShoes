@@ -15,7 +15,6 @@ namespace DemoShoes.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Role { get; set; }
 
         [Required]

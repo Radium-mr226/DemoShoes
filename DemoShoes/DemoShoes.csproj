@@ -161,6 +161,7 @@
     <None Include="Resources\Чудо Обувь.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cancel.png" />
     <Content Include="Чудо Обувь.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

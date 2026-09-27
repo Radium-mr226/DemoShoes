@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CreateOrderButton = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TitlePictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -61,7 +61,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.CreateOrderButton);
             this.splitContainer1.Panel1.Controls.Add(this.TitleLabel);
             this.splitContainer1.Panel1.Controls.Add(this.TitlePictureBox);
             // 
@@ -72,17 +72,18 @@
             this.splitContainer1.SplitterDistance = 112;
             this.splitContainer1.TabIndex = 1;
             // 
-            // button1
+            // CreateOrderButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(104, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Добавить товар";
-            this.button1.UseVisualStyleBackColor = false;
+            this.CreateOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
+            this.CreateOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.CreateOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateOrderButton.Location = new System.Drawing.Point(104, 67);
+            this.CreateOrderButton.Name = "CreateOrderButton";
+            this.CreateOrderButton.Size = new System.Drawing.Size(158, 31);
+            this.CreateOrderButton.TabIndex = 2;
+            this.CreateOrderButton.Text = "Сделать заказ";
+            this.CreateOrderButton.UseVisualStyleBackColor = false;
+            this.CreateOrderButton.Click += new System.EventHandler(this.CreateOrderButton_Click);
             // 
             // TitleLabel
             // 
@@ -176,7 +177,7 @@
 
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CreateOrderButton;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.PictureBox TitlePictureBox;
         private WonderShoesDataSet wonderShoesDataSet;

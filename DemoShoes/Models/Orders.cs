@@ -15,7 +15,6 @@ namespace DemoShoes.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Order { get; set; }
 
         [Column(TypeName = "date")]

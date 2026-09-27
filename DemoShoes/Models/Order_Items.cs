@@ -9,7 +9,6 @@ namespace DemoShoes.Models
     public partial class Order_Items
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Order_Item { get; set; }
 
         public int Id_Order { get; set; }

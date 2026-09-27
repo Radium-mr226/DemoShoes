@@ -14,16 +14,17 @@ namespace DemoShoes.AppForms
 {
     public partial class OrderForm : Form
     {
-            
-        public OrderForm()
+        private Users _user;
+        public OrderForm(Users users)
         {
             InitializeComponent();
+            _user = users;
         }
         
         private void OrderForm_Load(object sender, EventArgs e)
         {
             MainForm mainForm = this.Owner as MainForm;
-            var ordList = mainForm._order;
+            var ordList = mainForm._orderList;
             foreach (var prod in ordList)
             {
                 var pr = new ProductUserControl(prod, false);
@@ -31,5 +32,30 @@ namespace DemoShoes.AppForms
             }
 
         }
+
+        private void CreateOrderButton_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = this.Owner as MainForm;
+            Program.context.Orders.Add(mainForm._order);
+            foreach (var prod in mainForm._orderList)
+            {
+                Program.context.Order_Items.Add(prod);
+                Product_Stock product_Stock = Program.context.Product_Stock.FirstOrDefault(p=> p.Id_Product == prod.Id_Product && p.Size == prod.Size);
+                product_Stock.Quantity -= (int)prod.Quantity;
+            }
+            Program.context.SaveChanges();
+            
+        }
+
+        public void RemoveOrderItem(Order_Items item, ProductUserControl control)
+        {
+            MainForm mainForm = this.Owner as MainForm;
+            mainForm._orderList.Remove(item);       // убираем из списка заказа
+            flowLayoutPanel1.Controls.Remove(control); // убираем сам контрол с формы
+            control.Dispose();                       // освобождаем ресурсы контрола
+
+            mainForm.RefreshProdList();
+        }
+
     }
 }

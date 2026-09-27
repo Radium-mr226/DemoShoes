@@ -17,7 +17,6 @@ namespace DemoShoes.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Product { get; set; }
 
         public int Id_Category { get; set; }

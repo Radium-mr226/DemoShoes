@@ -10,7 +10,6 @@ namespace DemoShoes.Models
     {
         [Key]
         [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id_Product { get; set; }
 
         [Key]

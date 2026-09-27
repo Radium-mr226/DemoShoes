@@ -19,8 +19,8 @@ namespace DemoShoes
     {
 
         private Users _user;
-        //public List<Order_Items> _order = new List<Order_Items>();
-        public List<Products> _order = new List<Products>();
+        public List<Order_Items> _orderList = new List<Order_Items>();
+        public Orders _order = new Orders();
         private List<Products> _products = Program.context.Products.ToList();
 
         public MainForm()
@@ -39,6 +39,8 @@ namespace DemoShoes
             InitializeComponent();
             _user = user;
             FillProductsList(_products);
+            _order.Order_Date = DateTime.Now;
+            _order.Id_User = _user.Id_User; 
         }
 
         private void FillProductsList(List<Products> products)
@@ -129,7 +131,7 @@ namespace DemoShoes
 
         private void SeeOrderButton_Click(object sender, EventArgs e)
         {
-            OrderForm orderForm = new OrderForm();
+            OrderForm orderForm = new OrderForm(_user);
             orderForm.ShowDialog(this);
         }
     }

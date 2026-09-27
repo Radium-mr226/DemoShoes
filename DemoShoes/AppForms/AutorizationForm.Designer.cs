@@ -37,11 +37,11 @@
             this.tableAdapterManager = new DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.TitleLabel = new System.Windows.Forms.Label();
-            this.loginTextBox = new System.Windows.Forms.TextBox();
-            this.GuestButton = new System.Windows.Forms.Button();
-            this.AuthButton = new System.Windows.Forms.Button();
-            this.CancelButton = new System.Windows.Forms.Button();
             this.TitlePictureBox = new System.Windows.Forms.PictureBox();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.AuthButton = new System.Windows.Forms.Button();
+            this.GuestButton = new System.Windows.Forms.Button();
+            this.loginTextBox = new System.Windows.Forms.TextBox();
             loginLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.wonderShoesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
@@ -51,6 +51,16 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitlePictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // loginLabel
+            // 
+            loginLabel.AutoSize = true;
+            loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            loginLabel.Location = new System.Drawing.Point(12, 49);
+            loginLabel.Name = "loginLabel";
+            loginLabel.Size = new System.Drawing.Size(150, 24);
+            loginLabel.TabIndex = 0;
+            loginLabel.Text = "Введите логин:";
             // 
             // wonderShoesDataSet
             // 
@@ -115,49 +125,15 @@
             this.TitleLabel.TabIndex = 1;
             this.TitleLabel.Text = "Чудо Обувь: Авторизация";
             // 
-            // loginLabel
+            // TitlePictureBox
             // 
-            loginLabel.AutoSize = true;
-            loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            loginLabel.Location = new System.Drawing.Point(12, 49);
-            loginLabel.Name = "loginLabel";
-            loginLabel.Size = new System.Drawing.Size(150, 24);
-            loginLabel.TabIndex = 0;
-            loginLabel.Text = "Введите логин:";
-            // 
-            // loginTextBox
-            // 
-            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginTextBox.Location = new System.Drawing.Point(168, 46);
-            this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(303, 29);
-            this.loginTextBox.TabIndex = 1;
-            // 
-            // GuestButton
-            // 
-            this.GuestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
-            this.GuestButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.GuestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GuestButton.Location = new System.Drawing.Point(13, 119);
-            this.GuestButton.Name = "GuestButton";
-            this.GuestButton.Size = new System.Drawing.Size(146, 36);
-            this.GuestButton.TabIndex = 2;
-            this.GuestButton.Text = "Войти как гость";
-            this.GuestButton.UseVisualStyleBackColor = false;
-            this.GuestButton.Click += new System.EventHandler(this.GuestButton_Click);
-            // 
-            // AuthButton
-            // 
-            this.AuthButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
-            this.AuthButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AuthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AuthButton.Location = new System.Drawing.Point(167, 119);
-            this.AuthButton.Name = "AuthButton";
-            this.AuthButton.Size = new System.Drawing.Size(146, 36);
-            this.AuthButton.TabIndex = 3;
-            this.AuthButton.Text = "Войти";
-            this.AuthButton.UseVisualStyleBackColor = false;
-            this.AuthButton.Click += new System.EventHandler(this.AuthButton_Click);
+            this.TitlePictureBox.Image = global::DemoShoes.Properties.Resources.Чудо_Обувь;
+            this.TitlePictureBox.Location = new System.Drawing.Point(13, 13);
+            this.TitlePictureBox.Name = "TitlePictureBox";
+            this.TitlePictureBox.Size = new System.Drawing.Size(85, 85);
+            this.TitlePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TitlePictureBox.TabIndex = 0;
+            this.TitlePictureBox.TabStop = false;
             // 
             // CancelButton
             // 
@@ -172,15 +148,40 @@
             this.CancelButton.UseVisualStyleBackColor = false;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // TitlePictureBox
+            // AuthButton
             // 
-            this.TitlePictureBox.Image = global::DemoShoes.Properties.Resources.Чудо_Обувь;
-            this.TitlePictureBox.Location = new System.Drawing.Point(13, 13);
-            this.TitlePictureBox.Name = "TitlePictureBox";
-            this.TitlePictureBox.Size = new System.Drawing.Size(85, 85);
-            this.TitlePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.TitlePictureBox.TabIndex = 0;
-            this.TitlePictureBox.TabStop = false;
+            this.AuthButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
+            this.AuthButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AuthButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AuthButton.Location = new System.Drawing.Point(167, 119);
+            this.AuthButton.Name = "AuthButton";
+            this.AuthButton.Size = new System.Drawing.Size(146, 36);
+            this.AuthButton.TabIndex = 3;
+            this.AuthButton.Text = "Войти";
+            this.AuthButton.UseVisualStyleBackColor = false;
+            this.AuthButton.Click += new System.EventHandler(this.AuthButton_Click);
+            // 
+            // GuestButton
+            // 
+            this.GuestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
+            this.GuestButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GuestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GuestButton.Location = new System.Drawing.Point(13, 119);
+            this.GuestButton.Name = "GuestButton";
+            this.GuestButton.Size = new System.Drawing.Size(146, 36);
+            this.GuestButton.TabIndex = 2;
+            this.GuestButton.Text = "Войти как гость";
+            this.GuestButton.UseVisualStyleBackColor = false;
+            this.GuestButton.Click += new System.EventHandler(this.GuestButton_Click);
+            // 
+            // loginTextBox
+            // 
+            this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginTextBox.Location = new System.Drawing.Point(168, 46);
+            this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.Size = new System.Drawing.Size(303, 29);
+            this.loginTextBox.TabIndex = 1;
+            this.loginTextBox.Text = "isivanov";
             // 
             // AutorizationForm
             // 

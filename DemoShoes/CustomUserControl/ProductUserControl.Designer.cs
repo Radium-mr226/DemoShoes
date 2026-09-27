@@ -34,22 +34,24 @@
             this.QuantityLabel = new System.Windows.Forms.Label();
             this.CompositionLabel = new System.Windows.Forms.Label();
             this.CostLabel = new System.Windows.Forms.Label();
-            this.ProductPictureBox = new System.Windows.Forms.PictureBox();
             this.QuantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.AddToOrderButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.wonderShoesDataSet = new DemoShoes.WonderShoesDataSet();
-            this.product_StockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.product_StockTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.Product_StockTableAdapter();
             this.tableAdapterManager = new DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager();
             this.productsTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.ProductsTableAdapter();
             this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sizeComboBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductPictureBox)).BeginInit();
+            this.DelPictureBox = new System.Windows.Forms.PictureBox();
+            this.ProductPictureBox = new System.Windows.Forms.PictureBox();
+            this.product_StockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.QuantityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wonderShoesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.product_StockBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DelPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_StockBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FactoryNameLabel
@@ -101,25 +103,24 @@
             this.CostLabel.Text = "Цена";
             this.CostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ProductPictureBox
-            // 
-            this.ProductPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProductPictureBox.Location = new System.Drawing.Point(24, 24);
-            this.ProductPictureBox.Name = "ProductPictureBox";
-            this.ProductPictureBox.Size = new System.Drawing.Size(158, 158);
-            this.ProductPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ProductPictureBox.TabIndex = 0;
-            this.ProductPictureBox.TabStop = false;
-            this.ProductPictureBox.Click += new System.EventHandler(this.ProductPictureBox_Click);
-            // 
             // QuantityNumericUpDown
             // 
             this.QuantityNumericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
             this.QuantityNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.QuantityNumericUpDown.Location = new System.Drawing.Point(659, 85);
+            this.QuantityNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.QuantityNumericUpDown.Name = "QuantityNumericUpDown";
             this.QuantityNumericUpDown.Size = new System.Drawing.Size(52, 26);
             this.QuantityNumericUpDown.TabIndex = 6;
+            this.QuantityNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // AddToOrderButton
             // 
@@ -187,11 +188,34 @@
             this.sizeComboBox.TabIndex = 9;
             this.sizeComboBox.SelectedIndexChanged += new System.EventHandler(this.sizeComboBox_SelectedIndexChanged);
             // 
+            // DelPictureBox
+            // 
+            this.DelPictureBox.Image = global::DemoShoes.Properties.Resources.cancel;
+            this.DelPictureBox.Location = new System.Drawing.Point(1093, 0);
+            this.DelPictureBox.Name = "DelPictureBox";
+            this.DelPictureBox.Size = new System.Drawing.Size(30, 30);
+            this.DelPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.DelPictureBox.TabIndex = 10;
+            this.DelPictureBox.TabStop = false;
+            this.DelPictureBox.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // ProductPictureBox
+            // 
+            this.ProductPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProductPictureBox.Location = new System.Drawing.Point(24, 24);
+            this.ProductPictureBox.Name = "ProductPictureBox";
+            this.ProductPictureBox.Size = new System.Drawing.Size(158, 158);
+            this.ProductPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProductPictureBox.TabIndex = 0;
+            this.ProductPictureBox.TabStop = false;
+            this.ProductPictureBox.Click += new System.EventHandler(this.ProductPictureBox_Click);
+            // 
             // ProductUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(246)))), ((int)(((byte)(231)))));
+            this.Controls.Add(this.DelPictureBox);
             this.Controls.Add(this.sizeComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddToOrderButton);
@@ -207,11 +231,12 @@
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Size = new System.Drawing.Size(1123, 205);
             this.Load += new System.EventHandler(this.ProductUserControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ProductPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wonderShoesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.product_StockBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DelPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.product_StockBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +260,6 @@
         private WonderShoesDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private System.Windows.Forms.ComboBox sizeComboBox;
+        private System.Windows.Forms.PictureBox DelPictureBox;
     }
 }
