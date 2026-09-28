@@ -15,6 +15,16 @@ namespace DemoShoes.AppForms
     public partial class OrderForm : Form
     {
         private Users _user;
+        public decimal _price;
+        public decimal Price
+        {
+            get { return _price; }
+            set
+            {
+                _price = value;
+                OnPriceChanged();   // вызывается при каждом изменении
+            }
+        }
         public OrderForm(Users users)
         {
             InitializeComponent();
@@ -29,8 +39,9 @@ namespace DemoShoes.AppForms
             {
                 var pr = new ProductUserControl(prod, false);
                 flowLayoutPanel1.Controls.Add(pr);
+                
             }
-
+            RecalculateTotal();
         }
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
@@ -50,6 +61,7 @@ namespace DemoShoes.AppForms
         public void RemoveOrderItem(Order_Items item, ProductUserControl control)
         {
             MainForm mainForm = this.Owner as MainForm;
+
             mainForm._orderList.Remove(item);       // убираем из списка заказа
             flowLayoutPanel1.Controls.Remove(control); // убираем сам контрол с формы
             control.Dispose();                       // освобождаем ресурсы контрола
@@ -57,5 +69,18 @@ namespace DemoShoes.AppForms
             mainForm.RefreshProdList();
         }
 
+        private void OnPriceChanged()
+        {
+
+            TotalPriceLabel.Text = "Итого: " + _price.ToString("N2");
+            // здесь можно делать что угодно ещё: блокировать кнопку при нулевой сумме и т.д.
+            CreateOrderButton.Enabled = _price > 0;
+        }
+
+        public void RecalculateTotal()
+        {
+            MainForm mainForm = this.Owner as MainForm;
+            Price = mainForm._orderList.Sum(o => o.Unit_Price * o.Quantity);
+        }
     }
 }

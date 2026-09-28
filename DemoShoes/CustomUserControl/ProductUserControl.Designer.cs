@@ -121,6 +121,7 @@
             0,
             0,
             0});
+            this.QuantityNumericUpDown.ValueChanged += new System.EventHandler(this.QuantityNumericUpDown_ValueChanged);
             // 
             // AddToOrderButton
             // 

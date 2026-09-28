@@ -135,7 +135,7 @@ namespace DemoShoes.CustomUserControl
 
             //размеры конкретного товара
             sizes = Program.context.Product_Stock
-                .Where(p => p.Id_Product == _products.Id_Product)
+                .Where(p => p.Id_Product == _products.Id_Product && p.Quantity >0)
                 .OrderBy(p => p.Size)
                 .ToList();
 
@@ -165,6 +165,16 @@ namespace DemoShoes.CustomUserControl
 
             OrderForm orderForm = this.FindForm() as OrderForm;
             orderForm?.RemoveOrderItem(_orderItems, this);
+        }
+
+        private void QuantityNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (_orderItems == null || _isLoading) return;
+
+            _orderItems.Quantity = (int)QuantityNumericUpDown.Value;
+
+            OrderForm orderForm = this.FindForm() as OrderForm;
+            orderForm?.RecalculateTotal();
         }
     }
 }

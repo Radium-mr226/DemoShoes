@@ -41,6 +41,7 @@
             this.tableAdapterManager = new DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager();
             this.order_ItemsTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.Order_ItemsTableAdapter();
             this.order_ItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TotalPriceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.TotalPriceLabel);
             this.splitContainer1.Panel1.Controls.Add(this.CreateOrderButton);
             this.splitContainer1.Panel1.Controls.Add(this.TitleLabel);
             this.splitContainer1.Panel1.Controls.Add(this.TitlePictureBox);
@@ -152,6 +154,16 @@
             this.order_ItemsBindingSource.DataMember = "Order_Items";
             this.order_ItemsBindingSource.DataSource = this.wonderShoesDataSet;
             // 
+            // TotalPriceLabel
+            // 
+            this.TotalPriceLabel.AutoSize = true;
+            this.TotalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalPriceLabel.Location = new System.Drawing.Point(280, 72);
+            this.TotalPriceLabel.Name = "TotalPriceLabel";
+            this.TotalPriceLabel.Size = new System.Drawing.Size(121, 20);
+            this.TotalPriceLabel.TabIndex = 3;
+            this.TotalPriceLabel.Text = "Итого сумма = ";
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,5 +199,6 @@
         private WonderShoesDataSetTableAdapters.Order_ItemsTableAdapter order_ItemsTableAdapter;
         private System.Windows.Forms.BindingSource order_ItemsBindingSource;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label TotalPriceLabel;
     }
 }
