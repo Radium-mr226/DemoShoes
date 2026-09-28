@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.SeeOrderButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.CategoryComboBox = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.productsTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.ProductsTableAdapter();
             this.tableAdapterManager = new DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager();
-            this.SeeOrderButton = new System.Windows.Forms.Button();
+            this.SeeAllOrdersButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,6 +66,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.SeeAllOrdersButton);
             this.splitContainer1.Panel1.Controls.Add(this.SeeOrderButton);
             this.splitContainer1.Panel1.Controls.Add(this.ClearButton);
             this.splitContainer1.Panel1.Controls.Add(this.SearchTextBox);
@@ -81,6 +83,19 @@
             this.splitContainer1.Size = new System.Drawing.Size(1180, 768);
             this.splitContainer1.SplitterDistance = 140;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // SeeOrderButton
+            // 
+            this.SeeOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
+            this.SeeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SeeOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SeeOrderButton.Location = new System.Drawing.Point(994, 17);
+            this.SeeOrderButton.Name = "SeeOrderButton";
+            this.SeeOrderButton.Size = new System.Drawing.Size(158, 31);
+            this.SeeOrderButton.TabIndex = 9;
+            this.SeeOrderButton.Text = "Посмотреть заказ";
+            this.SeeOrderButton.UseVisualStyleBackColor = false;
+            this.SeeOrderButton.Click += new System.EventHandler(this.SeeOrderButton_Click);
             // 
             // ClearButton
             // 
@@ -210,18 +225,18 @@
             this.tableAdapterManager.UpdateOrder = DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
-            // SeeOrderButton
+            // SeeAllOrdersButton
             // 
-            this.SeeOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
-            this.SeeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SeeOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SeeOrderButton.Location = new System.Drawing.Point(994, 17);
-            this.SeeOrderButton.Name = "SeeOrderButton";
-            this.SeeOrderButton.Size = new System.Drawing.Size(158, 31);
-            this.SeeOrderButton.TabIndex = 9;
-            this.SeeOrderButton.Text = "Посмотреть заказ";
-            this.SeeOrderButton.UseVisualStyleBackColor = false;
-            this.SeeOrderButton.Click += new System.EventHandler(this.SeeOrderButton_Click);
+            this.SeeAllOrdersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
+            this.SeeAllOrdersButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SeeAllOrdersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SeeAllOrdersButton.Location = new System.Drawing.Point(776, 17);
+            this.SeeAllOrdersButton.Name = "SeeAllOrdersButton";
+            this.SeeAllOrdersButton.Size = new System.Drawing.Size(212, 31);
+            this.SeeAllOrdersButton.TabIndex = 10;
+            this.SeeAllOrdersButton.Text = "Посмотреть все заказы";
+            this.SeeAllOrdersButton.UseVisualStyleBackColor = false;
+            this.SeeAllOrdersButton.Click += new System.EventHandler(this.SeeAllOrdersButton_Click);
             // 
             // MainForm
             // 
@@ -263,6 +278,7 @@
         private System.Windows.Forms.ComboBox CategoryComboBox;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button SeeOrderButton;
+        private System.Windows.Forms.Button SeeAllOrdersButton;
     }
 }
 

@@ -46,15 +46,24 @@ namespace DemoShoes.AppForms
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = this.Owner as MainForm;
-            Program.context.Orders.Add(mainForm._order);
-            foreach (var prod in mainForm._orderList)
+            DialogResult isSave = MessageBox.Show("Вы уверены, что хотите схоранить?", "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (isSave == DialogResult.Yes)
             {
-                Program.context.Order_Items.Add(prod);
-                Product_Stock product_Stock = Program.context.Product_Stock.FirstOrDefault(p=> p.Id_Product == prod.Id_Product && p.Size == prod.Size);
-                product_Stock.Quantity -= (int)prod.Quantity;
+                MainForm mainForm = this.Owner as MainForm;
+                Program.context.Orders.Add(mainForm._order);
+                foreach (var prod in mainForm._orderList)
+                {
+                    Program.context.Order_Items.Add(prod);
+                    Product_Stock product_Stock = Program.context.Product_Stock.FirstOrDefault(p => p.Id_Product == prod.Id_Product && p.Size == prod.Size);
+                    product_Stock.Quantity -= (int)prod.Quantity;
+                    splitContainer1.Panel2.Controls[0].Controls.Clear();
+                    Price = 0;
+                }
+                Program.context.SaveChanges();
+                mainForm._order = new Orders();
+                mainForm._orderList.Clear();
+                mainForm.RefreshProdList();
             }
-            Program.context.SaveChanges();
             
         }
 

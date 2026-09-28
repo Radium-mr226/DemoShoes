@@ -28,10 +28,11 @@ namespace DemoShoes
             InitializeComponent();
             _user = null;
             FillProductsList(_products);
-            //this.splitContainer1.SplitterDistance = 120;
-            //this.SearchTextBox.Visible = false;
-            //this.CategoryComboBox.Visible = false;
-            //this.SortComboBox.Visible = false;
+            this.splitContainer1.SplitterDistance = 120;
+            this.SearchTextBox.Visible = false;
+            this.CategoryComboBox.Visible = false;
+            this.SortComboBox.Visible = false;
+            SeeOrderButton.Visible = false;
         }
 
         public MainForm( Users user)
@@ -41,6 +42,7 @@ namespace DemoShoes
             FillProductsList(_products);
             _order.Order_Date = DateTime.Now;
             _order.Id_User = _user.Id_User; 
+            //if (_user.Id_Role ==)
         }
 
         private void FillProductsList(List<Products> products)
@@ -65,6 +67,7 @@ namespace DemoShoes
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            
             var categories = Program.context.Categories
                 .OrderBy(c => c.Category_Name)
                 .ToList();
@@ -133,6 +136,11 @@ namespace DemoShoes
         {
             OrderForm orderForm = new OrderForm(_user);
             orderForm.ShowDialog(this);
+        }
+
+        private void SeeAllOrdersButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
