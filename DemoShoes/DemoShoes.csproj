@@ -58,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppForms\AllOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppForms\AllOrdersForm.Designer.cs">
+      <DependentUpon>AllOrdersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppForms\AutorizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="AppForms\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomUserControl\OrderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomUserControl\OrderUserControl.Designer.cs">
+      <DependentUpon>OrderUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomUserControl\ProductUserControl.cs">
       <SubType>UserControl</SubType>
@@ -107,6 +119,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WonderShoesDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppForms\AllOrdersForm.resx">
+      <DependentUpon>AllOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppForms\AutorizationForm.resx">
       <DependentUpon>AutorizationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppForms\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomUserControl\OrderUserControl.resx">
+      <DependentUpon>OrderUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomUserControl\ProductUserControl.resx">
       <DependentUpon>ProductUserControl.cs</DependentUpon>

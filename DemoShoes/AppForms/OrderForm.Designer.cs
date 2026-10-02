@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label id_UserLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.UserComboBox = new System.Windows.Forms.ComboBox();
+            this.TotalPriceLabel = new System.Windows.Forms.Label();
             this.CreateOrderButton = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TitlePictureBox = new System.Windows.Forms.PictureBox();
@@ -41,7 +44,7 @@
             this.tableAdapterManager = new DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager();
             this.order_ItemsTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.Order_ItemsTableAdapter();
             this.order_ItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.TotalPriceLabel = new System.Windows.Forms.Label();
+            id_UserLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -51,6 +54,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.ordersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.order_ItemsBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // id_UserLabel
+            // 
+            id_UserLabel.AutoSize = true;
+            id_UserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            id_UserLabel.Location = new System.Drawing.Point(514, 22);
+            id_UserLabel.Name = "id_UserLabel";
+            id_UserLabel.Size = new System.Drawing.Size(125, 20);
+            id_UserLabel.TabIndex = 6;
+            id_UserLabel.Text = "Пользователь:";
             // 
             // splitContainer1
             // 
@@ -62,6 +75,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.UserComboBox);
+            this.splitContainer1.Panel1.Controls.Add(id_UserLabel);
             this.splitContainer1.Panel1.Controls.Add(this.TotalPriceLabel);
             this.splitContainer1.Panel1.Controls.Add(this.CreateOrderButton);
             this.splitContainer1.Panel1.Controls.Add(this.TitleLabel);
@@ -73,6 +88,25 @@
             this.splitContainer1.Size = new System.Drawing.Size(1180, 450);
             this.splitContainer1.SplitterDistance = 112;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // UserComboBox
+            // 
+            this.UserComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserComboBox.FormattingEnabled = true;
+            this.UserComboBox.Location = new System.Drawing.Point(645, 19);
+            this.UserComboBox.Name = "UserComboBox";
+            this.UserComboBox.Size = new System.Drawing.Size(364, 28);
+            this.UserComboBox.TabIndex = 7;
+            // 
+            // TotalPriceLabel
+            // 
+            this.TotalPriceLabel.AutoSize = true;
+            this.TotalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalPriceLabel.Location = new System.Drawing.Point(280, 72);
+            this.TotalPriceLabel.Name = "TotalPriceLabel";
+            this.TotalPriceLabel.Size = new System.Drawing.Size(121, 20);
+            this.TotalPriceLabel.TabIndex = 3;
+            this.TotalPriceLabel.Text = "Итого сумма = ";
             // 
             // CreateOrderButton
             // 
@@ -154,16 +188,6 @@
             this.order_ItemsBindingSource.DataMember = "Order_Items";
             this.order_ItemsBindingSource.DataSource = this.wonderShoesDataSet;
             // 
-            // TotalPriceLabel
-            // 
-            this.TotalPriceLabel.AutoSize = true;
-            this.TotalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TotalPriceLabel.Location = new System.Drawing.Point(280, 72);
-            this.TotalPriceLabel.Name = "TotalPriceLabel";
-            this.TotalPriceLabel.Size = new System.Drawing.Size(121, 20);
-            this.TotalPriceLabel.TabIndex = 3;
-            this.TotalPriceLabel.Text = "Итого сумма = ";
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,7 +196,9 @@
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "OrderForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OrderForm_FormClosing);
             this.Load += new System.EventHandler(this.OrderForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -200,5 +226,6 @@
         private System.Windows.Forms.BindingSource order_ItemsBindingSource;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label TotalPriceLabel;
+        private System.Windows.Forms.ComboBox UserComboBox;
     }
 }

@@ -216,6 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(246)))), ((int)(((byte)(231)))));
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.DelPictureBox);
             this.Controls.Add(this.sizeComboBox);
             this.Controls.Add(this.label1);
@@ -230,7 +231,7 @@
             this.Margin = new System.Windows.Forms.Padding(20, 0, 20, 20);
             this.Name = "ProductUserControl";
             this.Padding = new System.Windows.Forms.Padding(20);
-            this.Size = new System.Drawing.Size(1123, 205);
+            this.Size = new System.Drawing.Size(1121, 203);
             this.Load += new System.EventHandler(this.ProductUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.QuantityNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wonderShoesDataSet)).EndInit();

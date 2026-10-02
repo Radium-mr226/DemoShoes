@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,21 +21,23 @@ namespace DemoShoes.CustomUserControl
         private List<Product_Stock> sizes;
         private Order_Items _orderItems;
         private bool _isLoading = false;
-
+        private bool _isNew = true;
+        private Users _user;
         public ProductUserControl(Products products, bool type)
         {
             InitializeComponent();
             _products = products;
             _type = type;
-            
         }
 
-        public ProductUserControl(Order_Items order_Items, bool type)
+        public ProductUserControl(Order_Items order_Items, bool type, bool isNew, Users users)
         {
             InitializeComponent();
             _orderItems = order_Items;
             _products = Program.context.Products.FirstOrDefault(p=> p.Id_Product == _orderItems.Id_Product);
             _type = type;
+            _isNew = isNew;
+            _user = users;
         }
 
         private void FillFields()
@@ -85,6 +88,7 @@ namespace DemoShoes.CustomUserControl
             {
                 AddToOrderButton.Visible = false;
                 QuantityNumericUpDown.Visible = true;
+                this.BackColor = ColorTranslator.FromHtml("#D2F6E7");
             }
 
             FactoryNameLabel.Text = _products.Factories.Factory_Name.ToString() + " | " + _products.Product_Name.ToString();
@@ -133,30 +137,43 @@ namespace DemoShoes.CustomUserControl
         {
             _isLoading = true;
 
-            //размеры конкретного товара
+            if (!_isNew  )
+                if (_user.Id_Role == 2)
+                    this.Enabled = false;
+
             sizes = Program.context.Product_Stock
-                .Where(p => p.Id_Product == _products.Id_Product && p.Quantity >0)
+                .Where(p => p.Id_Product == _products.Id_Product && p.Quantity > 0)
                 .OrderBy(p => p.Size)
                 .ToList();
 
-            sizeComboBox.DataSource = sizes;
+            if (sizes.Count <= 3 && _type)
+                this.BackColor = ColorTranslator.FromHtml("#FF8080");
+
             sizeComboBox.DisplayMember = "Size";
             sizeComboBox.ValueMember = "Size";
+            sizeComboBox.DataSource = sizes;
 
             if (_orderItems != null)
             {
-                var savedSize = sizes.FirstOrDefault(s => s.Size == _orderItems?.Size);
+                var savedSize = sizes.FirstOrDefault(s => s.Size == _orderItems.Size);
                 sizeComboBox.SelectedItem = savedSize ?? (sizes.Count > 0 ? sizes[0] : null);
-                QuantityNumericUpDown.Value = _orderItems.Quantity;
             }
             else if (sizes.Count > 0)
             {
                 sizeComboBox.SelectedIndex = 0;
             }
 
-            _isLoading = false;
+            FillFields();   // теперь Maximum посчитан для выбранного размера
 
-            FillFields();
+            if (_orderItems != null)
+            {
+                QuantityNumericUpDown.Minimum = 1;
+                decimal value = Math.Max(1, Math.Min(_orderItems.Quantity, QuantityNumericUpDown.Maximum));
+                QuantityNumericUpDown.Value = value;
+                _orderItems.Quantity = (int)value;
+            }
+
+            _isLoading = false;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
