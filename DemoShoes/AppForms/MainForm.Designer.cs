@@ -39,13 +39,11 @@
             this.wonderShoesDataSet = new DemoShoes.WonderShoesDataSet();
             this.SortComboBox = new System.Windows.Forms.ComboBox();
             this.OrderListButton = new System.Windows.Forms.Button();
-            this.AddButton = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TitlePictureBox = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.productsTableAdapter = new DemoShoes.WonderShoesDataSetTableAdapters.ProductsTableAdapter();
             this.tableAdapterManager = new DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager();
-            this.SeeAllOrdersButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -66,14 +64,12 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.SeeAllOrdersButton);
             this.splitContainer1.Panel1.Controls.Add(this.SeeOrderButton);
             this.splitContainer1.Panel1.Controls.Add(this.ClearButton);
             this.splitContainer1.Panel1.Controls.Add(this.SearchTextBox);
             this.splitContainer1.Panel1.Controls.Add(this.CategoryComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.SortComboBox);
             this.splitContainer1.Panel1.Controls.Add(this.OrderListButton);
-            this.splitContainer1.Panel1.Controls.Add(this.AddButton);
             this.splitContainer1.Panel1.Controls.Add(this.TitleLabel);
             this.splitContainer1.Panel1.Controls.Add(this.TitlePictureBox);
             // 
@@ -89,7 +85,7 @@
             this.SeeOrderButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
             this.SeeOrderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SeeOrderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SeeOrderButton.Location = new System.Drawing.Point(994, 17);
+            this.SeeOrderButton.Location = new System.Drawing.Point(104, 67);
             this.SeeOrderButton.Name = "SeeOrderButton";
             this.SeeOrderButton.Size = new System.Drawing.Size(158, 31);
             this.SeeOrderButton.TabIndex = 9;
@@ -158,24 +154,12 @@
             this.OrderListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
             this.OrderListButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.OrderListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderListButton.Location = new System.Drawing.Point(268, 67);
+            this.OrderListButton.Location = new System.Drawing.Point(268, 68);
             this.OrderListButton.Name = "OrderListButton";
             this.OrderListButton.Size = new System.Drawing.Size(158, 31);
             this.OrderListButton.TabIndex = 3;
             this.OrderListButton.Text = "Список заказов";
             this.OrderListButton.UseVisualStyleBackColor = false;
-            // 
-            // AddButton
-            // 
-            this.AddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
-            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddButton.Location = new System.Drawing.Point(104, 67);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(158, 31);
-            this.AddButton.TabIndex = 2;
-            this.AddButton.Text = "Добавить товар";
-            this.AddButton.UseVisualStyleBackColor = false;
             // 
             // TitleLabel
             // 
@@ -225,19 +209,6 @@
             this.tableAdapterManager.UpdateOrder = DemoShoes.WonderShoesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;
             // 
-            // SeeAllOrdersButton
-            // 
-            this.SeeAllOrdersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
-            this.SeeAllOrdersButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SeeAllOrdersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SeeAllOrdersButton.Location = new System.Drawing.Point(776, 17);
-            this.SeeAllOrdersButton.Name = "SeeAllOrdersButton";
-            this.SeeAllOrdersButton.Size = new System.Drawing.Size(212, 31);
-            this.SeeAllOrdersButton.TabIndex = 10;
-            this.SeeAllOrdersButton.Text = "Посмотреть все заказы";
-            this.SeeAllOrdersButton.UseVisualStyleBackColor = false;
-            this.SeeAllOrdersButton.Click += new System.EventHandler(this.SeeAllOrdersButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,7 +238,6 @@
         private System.Windows.Forms.PictureBox TitlePictureBox;
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button OrderListButton;
         private System.Windows.Forms.ComboBox SortComboBox;
         private WonderShoesDataSet wonderShoesDataSet;
@@ -278,7 +248,6 @@
         private System.Windows.Forms.ComboBox CategoryComboBox;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button SeeOrderButton;
-        private System.Windows.Forms.Button SeeAllOrdersButton;
     }
 }
 

@@ -32,7 +32,9 @@ namespace DemoShoes
             this.SearchTextBox.Visible = false;
             this.CategoryComboBox.Visible = false;
             this.SortComboBox.Visible = false;
-            SeeOrderButton.Visible = false;
+            this.ClearButton.Visible = false;
+            this.SeeOrderButton.Visible = false;
+            this.OrderListButton.Visible = false;
         }
 
         public MainForm( Users user)
@@ -42,7 +44,10 @@ namespace DemoShoes
             FillProductsList(_products);
             _order.Order_Date = DateTime.Now;
             _order.Id_User = _user.Id_User; 
-            //if (_user.Id_Role ==)
+            if (_user.Id_Role == 3)
+            {
+                OrderListButton.Visible = false;
+            }    
         }
 
         private void FillProductsList(List<Products> products)
@@ -118,7 +123,7 @@ namespace DemoShoes
             {
                 tData = tData.OrderBy(p => p.Price).ToList();
             }
-            else if(CategoryComboBox.SelectedIndex == 2)
+            else if(SortComboBox.SelectedIndex == 2)
             {
                 tData = tData.OrderByDescending(p => p.Price).ToList();
             }

@@ -30,8 +30,7 @@ namespace DemoShoes.AppForms
 
         private void AutorizationForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "wonderShoesDataSet.Users". При необходимости она может быть перемещена или удалена.
-            this.usersTableAdapter.Fill(this.wonderShoesDataSet.Users);
+           
 
         }
 
