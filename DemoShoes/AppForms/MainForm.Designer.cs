@@ -154,7 +154,7 @@
             this.OrderListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(178)))), ((int)(((byte)(175)))));
             this.OrderListButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.OrderListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderListButton.Location = new System.Drawing.Point(268, 67);
+            this.OrderListButton.Location = new System.Drawing.Point(268, 68);
             this.OrderListButton.Name = "OrderListButton";
             this.OrderListButton.Size = new System.Drawing.Size(158, 31);
             this.OrderListButton.TabIndex = 3;
