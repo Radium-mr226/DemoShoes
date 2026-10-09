@@ -91,6 +91,7 @@
             // 
             // UserComboBox
             // 
+            this.UserComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UserComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UserComboBox.FormattingEnabled = true;
             this.UserComboBox.Location = new System.Drawing.Point(645, 19);

@@ -22,11 +22,13 @@ namespace DemoShoes
         public List<Order_Items> _orderList = new List<Order_Items>();
         public Orders _order = new Orders();
         private List<Products> _products = Program.context.Products.ToList();
+        private bool _isGuest = true;
 
         public MainForm()
         {
             InitializeComponent();
             _user = null;
+            _isGuest = true;
             FillProductsList(_products);
             this.splitContainer1.SplitterDistance = 120;
             this.SearchTextBox.Visible = false;
@@ -35,12 +37,14 @@ namespace DemoShoes
             this.ClearButton.Visible = false;
             this.SeeOrderButton.Visible = false;
             this.OrderListButton.Visible = false;
+
         }
 
         public MainForm( Users user)
         {
             InitializeComponent();
             _user = user;
+            _isGuest = false;
             FillProductsList(_products);
             _order.Order_Date = DateTime.Now;
             _order.Id_User = _user.Id_User; 
@@ -54,7 +58,7 @@ namespace DemoShoes
         {
             foreach (var prod in products)
             {
-                var pr = new ProductUserControl(prod, true);
+                var pr = new ProductUserControl(prod, true, _isGuest);
                 flowLayoutPanel1.Controls.Add(pr);
             }
         }

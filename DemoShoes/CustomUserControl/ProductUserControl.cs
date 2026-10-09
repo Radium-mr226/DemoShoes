@@ -22,12 +22,14 @@ namespace DemoShoes.CustomUserControl
         private Order_Items _orderItems;
         private bool _isLoading = false;
         private bool _isNew = true;
-        private Users _user;
-        public ProductUserControl(Products products, bool type)
+        private Users _user ;
+        private bool _isGuest = true;
+        public ProductUserControl(Products products, bool type, bool isGuest)
         {
             InitializeComponent();
             _products = products;
             _type = type;
+            _isGuest = isGuest;
         }
 
         public ProductUserControl(Order_Items order_Items, bool type, bool isNew, Users users)
@@ -83,6 +85,8 @@ namespace DemoShoes.CustomUserControl
                     mainForm._orderList.Any(o => o.Id_Product == _products.Id_Product);
 
                 AddToOrderButton.Visible = !alreadyInOrder;
+                if (_isGuest)
+                    AddToOrderButton.Visible = !_isGuest;
             }
             else
             {
@@ -141,6 +145,10 @@ namespace DemoShoes.CustomUserControl
                 if (_user.Id_Role == 2)
                     this.Enabled = false;
 
+            if (_isGuest)
+            {
+                AddToOrderButton.Visible = false;                
+            }
             sizes = Program.context.Product_Stock
                 .Where(p => p.Id_Product == _products.Id_Product && p.Quantity > 0)
                 .OrderBy(p => p.Size)

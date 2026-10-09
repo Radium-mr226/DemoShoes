@@ -43,6 +43,7 @@ namespace DemoShoes.AppForms
             _isNew = isNew;
             _canEdit = canEdit;
             _user = users;
+            //this.TitleLabel.Text = 
         }
 
         private void OrderForm_Load(object sender, EventArgs e)
@@ -83,6 +84,8 @@ namespace DemoShoes.AppForms
                 {
                     MainForm mainForm = this.Owner as MainForm;
                     Program.context.Orders.Add(mainForm._order);
+                    if (_user.Id_Role == 1)
+                        mainForm._order.Id_User = (int)UserComboBox.SelectedValue;
                     foreach (var prod in mainForm._orderList)
                     {
                         Program.context.Order_Items.Add(prod);
